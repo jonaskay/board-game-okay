@@ -48,7 +48,7 @@ const config: GatsbyConfig = {
             itunes: "http://www.itunes.com/dtds/podcast-1.0.dtd",
           },
           custom_elements: [
-            { "itunes:author": "Joonas Kykkänen" },
+            { "itunes:author": "Board Game Okay" },
             { "itunes:explicit": "clean" },
             {
               "itunes:image": {
@@ -75,7 +75,7 @@ const config: GatsbyConfig = {
             },
             {
               "itunes:owner": [
-                { "itunes:name": "Joonas Kykkänen" },
+                { "itunes:name": "Board Game Okay" },
                 { "itunes:email": "jonaskay@iki.fi" },
               ],
             },
