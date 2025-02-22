@@ -8,16 +8,17 @@ type EpisodeProps = {
 
 const Episode = ({ data }: EpisodeProps): JSX.Element => {
   const {
-    mdx: {
+    markdownRemark: {
+      html,
       frontmatter: { description, title },
     },
   } = data;
 
   return (
     <Layout>
-      <div className="max-w-md text-center text-white">
-        <h1 className="mt-12 mb-6 text-3xl font-bold">{title}</h1>
-        <p className="mt-4 text-lg">{description}</p>
+      <div className="prose prose-invert prose-slate mt-12">
+        <h1>{title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: html }} className="" />
       </div>
     </Layout>
   );
@@ -27,7 +28,8 @@ export default Episode;
 
 export const query = graphql`
   query EpisodeBySlug($slug: String!) {
-    mdx(fields: { slug: { eq: $slug } }) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
       frontmatter {
         description
         title

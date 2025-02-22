@@ -14,9 +14,9 @@ const config: GatsbyConfig = {
     "gatsby-plugin-postcss",
     "gatsby-plugin-image",
     "gatsby-plugin-sitemap",
-    "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-transformer-remark",
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -87,47 +87,45 @@ const config: GatsbyConfig = {
         }),
         feeds: [
           {
-            serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map((edge) => {
-                return Object.assign({}, edge.node.frontmatter, {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.nodes.map((node) => {
+                return Object.assign({}, node.frontmatter, {
                   custom_elements: [
-                    { "itunes:duration": edge.node.frontmatter.audioDuration },
-                    { "itunes:episodeType": edge.node.frontmatter.type },
-                    { "itunes:summary": edge.node.frontmatter.description },
-                    { "itunes:explicit": edge.node.frontmatter.explicit },
+                    { "itunes:duration": node.frontmatter.audioDuration },
+                    { "itunes:episodeType": node.frontmatter.type },
+                    { "itunes:summary": node.frontmatter.description },
+                    { "itunes:explicit": node.frontmatter.explicit },
                   ],
-                  date: edge.node.frontmatter.date,
-                  description: edge.node.frontmatter.description,
+                  date: node.frontmatter.date,
+                  description: node.frontmatter.description,
                   enclosure: {
-                    size: edge.node.frontmatter.audioSize,
+                    size: node.frontmatter.audioSize,
                     type: "audio/mp3",
-                    url: edge.node.frontmatter.audioUrl,
+                    url: node.frontmatter.audioUrl,
                   },
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + node.fields.slug,
+                  url: site.siteMetadata.siteUrl + node.fields.slug,
                 });
               });
             },
             query: `
               {
-                allMdx(
+                allMarkdownRemark(
                   sort: { frontmatter: {date: DESC}}
                 ) {
-                  edges {
-                    node {
-                      fields {
-                        slug
-                      }
-                      frontmatter {
-                        title
-                        description
-                        type
-                        explicit
-                        date
-                        audioDuration
-                        audioSize
-                        audioUrl
-                      }
+                  nodes {
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                      description
+                      type
+                      explicit
+                      date
+                      audioDuration
+                      audioSize
+                      audioUrl
                     }
                   }
                 }

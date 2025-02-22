@@ -4,7 +4,7 @@ import path from "path";
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === `Mdx`) {
+  if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode });
     createNodeField({
       name: `slug`,
@@ -21,12 +21,10 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(
     `
       {
-        allMdx(sort: { frontmatter: { date: DESC } }) {
-          edges {
-            node {
-              fields {
-                slug
-              }
+        allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+          nodes {
+            fields {
+              slug
             }
           }
         }
@@ -38,14 +36,14 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors;
   }
 
-  const episodes = result.data.allMdx.edges;
+  const nodes = result.data.allMarkdownRemark.nodes;
 
-  episodes.forEach((episode) => {
+  nodes.forEach((node) => {
     createPage({
-      path: episode.node.fields.slug,
+      path: node.fields.slug,
       component: template,
       context: {
-        slug: episode.node.fields.slug,
+        slug: node.fields.slug,
       },
     });
   });

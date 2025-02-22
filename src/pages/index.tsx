@@ -10,10 +10,8 @@ const IndexPage = ({}: PageProps): JSX.Element => {
           <StaticImage src="../images/icon.png" alt="Board Game Okay Logo" />
         </div>
         <div className="flex justify-center space-x-8">
-          <div className="max-w-md text-center text-white">
-            <h1 className="mt-12 mb-6 text-3xl sm:text-5xl font-bold">
-              Board Game Okay
-            </h1>
+          <div className="prose prose-invert prose-slate mt-12">
+            <h1 className="">Board Game Okay</h1>
             <p className="mt-4 text-lg sm:text-xl">
               Podcast about board games and the hobby of board gaming.
             </p>
