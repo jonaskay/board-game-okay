@@ -10,7 +10,7 @@ const Episode = ({ data }: EpisodeProps): JSX.Element => {
   const {
     markdownRemark: {
       html,
-      frontmatter: { description, title },
+      frontmatter: { title },
     },
   } = data;
 
@@ -31,7 +31,6 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
-        description
         title
       }
     }

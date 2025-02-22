@@ -93,11 +93,10 @@ const config: GatsbyConfig = {
                   custom_elements: [
                     { "itunes:duration": node.frontmatter.audioDuration },
                     { "itunes:episodeType": node.frontmatter.type },
-                    { "itunes:summary": node.frontmatter.description },
                     { "itunes:explicit": node.frontmatter.explicit },
                   ],
                   date: node.frontmatter.date,
-                  description: node.frontmatter.description,
+                  description: node.html,
                   enclosure: {
                     size: node.frontmatter.audioSize,
                     type: "audio/mp3",
@@ -114,12 +113,12 @@ const config: GatsbyConfig = {
                   sort: { frontmatter: {date: DESC}}
                 ) {
                   nodes {
+                    html
                     fields {
                       slug
                     }
                     frontmatter {
                       title
-                      description
                       type
                       explicit
                       date
