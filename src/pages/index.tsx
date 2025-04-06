@@ -1,6 +1,7 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
+import Links from "../components/links";
 
 const IndexPage = ({}: PageProps): JSX.Element => {
   return (
@@ -9,8 +10,8 @@ const IndexPage = ({}: PageProps): JSX.Element => {
         <div className="w-64 h-64 mx-auto rounded-xl shadow-xl shadow-slate-600/40 overflow-hidden">
           <StaticImage src="../images/icon.png" alt="Board Game Okay Logo" />
         </div>
-        <div className="flex justify-center space-x-8">
-          <div className="prose prose-invert prose-slate mt-12">
+        <div className="px-4 sm:px-8">
+          <div className="prose prose-invert prose-slate my-12">
             <h1 className="">Board Game Okay</h1>
             <p className="mt-4 text-lg sm:text-xl">
               Podcast about board games and the hobby of board gaming.
@@ -19,6 +20,7 @@ const IndexPage = ({}: PageProps): JSX.Element => {
               Hosted by Luis and Joonas.
             </p>
           </div>
+          <Links />
         </div>
       </main>
     </div>
