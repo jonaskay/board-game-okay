@@ -1,6 +1,7 @@
 import { graphql, HeadFC } from "gatsby";
 import React, { ReactNode } from "react";
 import Layout from "../components/layout";
+import Links from "../components/links";
 
 type EpisodeProps = {
   children: ReactNode;
@@ -16,9 +17,12 @@ const Episode = ({ data }: EpisodeProps): JSX.Element => {
 
   return (
     <Layout>
-      <div className="prose prose-invert prose-slate mt-12">
-        <h1>{title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: html }} className="" />
+      <div>
+        <div className="prose prose-invert prose-slate my-12">
+          <h1>{title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: html }} className="" />
+        </div>
+        <Links />
       </div>
     </Layout>
   );
