@@ -8,4 +8,4 @@ audioSize: 8305481
 audioDuration: 677
 ---
 
-Who got the Golden Geeks 2024 winners right? Luis or Joonas?
+Who got the Golden Geeks 2024 winners right: Luis or Joonas?
