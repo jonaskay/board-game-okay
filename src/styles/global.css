@@ -6,6 +6,7 @@
 
 @layer base {
   body {
+    background-color: #0f172a;
     --tw-gradient-from: #1e293b var(--tw-gradient-from-position);
     --tw-gradient-to: #0f172a var(--tw-gradient-to-position);
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
