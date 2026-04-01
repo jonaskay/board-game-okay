@@ -42,5 +42,8 @@ export const query = graphql`
 `;
 
 export const Head: HeadFC = () => (
-  <title>Board Game Okay - Podcast About Board Games</title>
+  <>
+    <title>Board Game Okay - Podcast About Board Games</title>
+    <meta name="theme-color" content="#1e293b" />
+  </>
 );

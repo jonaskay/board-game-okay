@@ -30,5 +30,8 @@ const IndexPage = ({}: PageProps): JSX.Element => {
 export default IndexPage;
 
 export const Head: HeadFC = () => (
-  <title>Board Game Okay - Podcast About Board Games</title>
+  <>
+    <title>Board Game Okay - Podcast About Board Games</title>
+    <meta name="theme-color" content="#1e293b" />
+  </>
 );
