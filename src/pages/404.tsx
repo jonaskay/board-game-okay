@@ -49,6 +49,6 @@ export default NotFoundPage
 export const Head: HeadFC = () => (
   <>
     <title>Not found</title>
-    <meta name="theme-color" content="#1e293b" />
+    <meta name="theme-color" content="#0f172a" />
   </>
 )

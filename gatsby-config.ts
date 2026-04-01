@@ -14,6 +14,18 @@ const config: GatsbyConfig = {
     "gatsby-plugin-postcss",
     "gatsby-plugin-image",
     "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: `Board Game Okay`,
+        short_name: `Board Game Okay`,
+        start_url: `/`,
+        background_color: `#0f172a`,
+        theme_color: `#0f172a`,
+        display: `standalone`,
+        icon: `src/images/icon.png`,
+      },
+    },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-transformer-remark",
