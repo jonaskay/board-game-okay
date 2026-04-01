@@ -2,7 +2,6 @@ import React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import Links from "../components/links";
-import Vote from "../components/vote";
 
 const IndexPage = ({}: PageProps): JSX.Element => {
   return (
@@ -20,7 +19,6 @@ const IndexPage = ({}: PageProps): JSX.Element => {
             <p className="mt-4 text-lg sm:text-xl">
               Hosted by Luis and Joonas.
             </p>
-            <Vote />
           </div>
           <Links />
         </div>
