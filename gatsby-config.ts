@@ -61,7 +61,7 @@ const config: GatsbyConfig = {
           },
           custom_elements: [
             { "itunes:author": "Board Game Okay" },
-            { "itunes:explicit": "clean" },
+            { "itunes:explicit": false },
             {
               "itunes:image": {
                 _attr: {
@@ -111,7 +111,7 @@ const config: GatsbyConfig = {
                   description: node.html,
                   enclosure: {
                     size: node.frontmatter.audioSize,
-                    type: "audio/mp3",
+                    type: "audio/mpeg",
                     url: node.frontmatter.audioUrl,
                   },
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
