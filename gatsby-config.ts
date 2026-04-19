@@ -88,7 +88,7 @@ const config: GatsbyConfig = {
             {
               "itunes:owner": [
                 { "itunes:name": "Board Game Okay" },
-                { "itunes:email": "jonaskay@iki.fi" },
+                { "itunes:email": "boardgameokay@gmail.com" },
               ],
             },
           ],
