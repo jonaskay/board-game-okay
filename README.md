@@ -47,3 +47,39 @@
 Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
 
 [<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+
+## Episode Generator
+
+Generate the next regular episode markdown file from the newest MP3 in `assets/episodes`:
+
+```shell
+npm run generate:episode
+```
+
+Preview without writing:
+
+```shell
+npm run generate:episode -- --dry-run
+```
+
+Optional: pass a custom audio folder path.
+
+```shell
+node scripts/generate-episode.js path/to/audio-folder
+node scripts/generate-episode.js path/to/audio-folder --dry-run
+```
+
+Behavior:
+
+- Picks the latest modified `.mp3` file in the audio folder.
+- Finds the highest existing regular episode file in `src/episodes` (`NNN.md`) and creates the next one.
+- Reads MP3 duration from macOS `afinfo` output.
+- Reads MP3 title from `afinfo` when available, with macOS `mdls` fallback.
+- Uses current local date for `date`.
+- Prefills `type` as `"full"` and `explicit` as `"false"`.
+- Prefills `audioUrl` as `https://storage.googleapis.com/board-game-okay-feed/NNN-board-game-okay.mp3`.
+
+Requirements:
+
+- macOS (script uses `afinfo`).
+- MP3 title metadata must be set; otherwise generation fails.
